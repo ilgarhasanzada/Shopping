@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="row" style='margin:100px 0;'>
+        <div class="col-2">
+            <div class="list-group">
+                <a href={% url 'categories' %} class="list-group-item list-group-item-action">Kategoriyalar</a>
+                <a href={% url 'dashboard_products' %} class="list-group-item list-group-item-action">Məhsullar</a>
+                <a href={% url 'users' %} class="list-group-item list-group-item-action">İstifadəçilər</a>
+            </div>
+        </div>
+        <div class="col-10">
+            {% block dashboard %}{% endblock dashboard %}
+        </div>
+    </div>  
+{% endblock content %}

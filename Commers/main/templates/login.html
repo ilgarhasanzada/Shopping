@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+{% block content %}
+   <h1 style='font-size:200px;'>Login</h1>
+   <form action="" method="post">
+       {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Log in</button>
+   </form>
+{% endblock content %}

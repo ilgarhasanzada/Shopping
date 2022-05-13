@@ -1,0 +1,24 @@
+{% extends 'dashboard.html' %} {% block dashboard %}
+<form action="" method="post">
+    {% csrf_token %}
+<h2>İstifadəçilər <a href={% url 'create_user' %} class="btn btn-dark mb-2"  role="button">Create User</a></h2>
+<table
+  class="table table-hover table-danger table-striped table-inverse table-responsive"
+>
+{% for user in users %}
+  <tr>
+    <td>
+        <div class="row">
+        <div class="col col-9 d-flex align-items-center">
+      {{user.username}}</div>
+      <div class="col col-3 d-flex justify-content-end align-items-center">
+      <a name="" id="" class="btn  btn-primary" href={% url 'update_user' user.id %} role="button">Update</a
+      ><a name="" id="" class="btn btn-danger mx-3" href={% url 'delete_user' user.id%} role="button"
+      >Delete</a>
+      </div></div>
+    </td>
+  </tr>
+  {% endfor %}
+</table>  
+</form>
+{% endblock %}

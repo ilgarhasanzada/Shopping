@@ -1,0 +1,24 @@
+{% extends 'dashboard.html' %} {% block dashboard %}
+<form action="" method="post">
+    {% csrf_token %}
+<h2>Kategoriyalar <a name="" id="" class="btn btn-dark mb-2" href={% url 'create_category' %} role="button">Add new</a></h2>
+<table
+  class="table table-hover table-danger table-striped table-inverse table-responsive"
+>
+{% for category in categories %}
+  <tr>
+    <td>
+        <div class="row">
+        <div class="col col-9 d-flex align-items-center">
+      {{category.category_name}}</div>
+      <div class="col col-3 d-flex justify-content-end align-items-center">
+      <a name="" id="" class="btn  btn-primary" href="{% url 'update_category' category.id %}" role="button">Update</a
+      ><a name="" id="" class="btn btn-danger mx-3" href="{% url 'delete_category' category.id %}" role="button"
+      >Delete</a>
+      </div></div>
+    </td>
+  </tr>
+  {% endfor %}
+</table>  
+</form>
+{% endblock %}

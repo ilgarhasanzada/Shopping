@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="row" style='margin:100px 0;'>
+        <div class="col-2">
+            <div class="list-group">
+                <a href={% url 'categories' %} class="list-group-item list-group-item-action">Kategoriyalar</a>
+                <a href={% url 'dashboard_products' %} class="list-group-item list-group-item-action">Məhsullar</a>
+                <a href="#" class="list-group-item list-group-item-action">İstifadəçilər</a>
+            </div>
+        </div>
+        <div class="col-10">
+            <form action="" method="post">
+                {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class='btn btn-primary'>Create</button>
+        </form>
+        </div>
+    </div>  
+{% endblock content %}

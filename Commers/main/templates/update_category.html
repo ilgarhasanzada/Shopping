@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="row" style='margin:100px 0;'>
+        <div class="col-2">
+            <div class="list-group">
+                <a href={% url 'categories' %} class="list-group-item list-group-item-action">Kategoriyalar</a>
+                <a href={% url 'dashboard_products' %} class="list-group-item list-group-item-action">Məhsullar</a>
+                <a href="#" class="list-group-item list-group-item-action">İstifadəçilər</a>
+            </div>
+        </div>
+        <div class="col-10">
+            <form action="" method="post">
+                {% csrf_token %}
+            {{form.as_p}}
+            
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modelId">
+    Update
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Do you want to update this category?</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class='btn btn-primary'>Update</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+        </form>
+        </div>
+    </div>  
+{% endblock content %}

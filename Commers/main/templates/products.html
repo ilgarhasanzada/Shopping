@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="row m-5 p-5">
+        <div class="col-2">
+            {% for category in categories %}
+            <div class="list-group">
+                <a href={% url 'category_products' category.id %} class="list-group-item list-group-item-action">{{category.category_name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-10">
+            {% for product in products %}
+            <div class="list-group">
+                <a href={% url 'product_detail' product.id %} class="list-group-item list-group-item-action">{{product.product_description}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
